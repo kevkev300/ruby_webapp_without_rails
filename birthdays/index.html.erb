@@ -1,0 +1,18 @@
+<%= tag.ul do %>
+  <% @all_birthdays.each do |birthday| %>
+    <%= tag.li do %>
+      <%= tag.b(birthday.name) %> was born on <%= birthday.date %>!
+    <% end %>
+  <% end %>
+<% end %>
+<%= form_tag(birthdays_path) do %>
+  <%= tag.p do %>
+    <%= label_tag("text", "Name") %>
+    <%= text_field_tag("name") %>
+  <% end %>
+  <%= tag.p do %>
+    <%= label_tag("date", "Date") %>
+    <%= date_field_tag("date") %>
+  <% end %>
+  <%= button_tag("Submit birthday") %>
+<% end %>
